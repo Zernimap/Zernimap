@@ -16,6 +16,8 @@ export class HomePage {
   ionViewDidEnter() {
     this.loadmap();
     this.locate();
+    this.addTestBuildings();
+
   }
 
   locate() {
@@ -51,7 +53,34 @@ export class HomePage {
       attributions: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
       maxZoom: 18
     }).addTo(this.map);
-    
-   }
+ 
+  }
+
+  addTestBuildings() {
+    let buildingList = [
+      {
+        title: 'Van DoorenVeste',
+        latitude: '53.241150',
+        longitude: '6.532580'
+      },
+      {
+        title: 'Van Olst Toren',
+        latitude: '53.239852',
+        longitude: '6.531444'
+      },
+      {
+        title: 'Willem-Alexander Sportcentrum',
+        latitude: '53.241808',
+        longitude: '6.535021'
+      }
+    ];
+
+    let rooms = leaflet.featureGroup();
+    for (let building of buildingList) {
+      let marker: any = leaflet.marker([building.latitude, building.longitude])
+      rooms.addLayer(marker);
+    }
+    this.map.addLayer(rooms);
+  }
  
 }
