@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import leaflet from 'leaflet';
+import L from 'leaflet';
 
 @Component({
   selector: 'page-home',
@@ -22,13 +22,13 @@ export class HomePage {
   }
 
   locate() {
-      let myIcon = leaflet.icon({
+      let myIcon = L.icon({
           iconUrl: 'assets/imgs/location.png',
           iconSize: [40, 40],
 
       })
-      let markerGroup = leaflet.featureGroup();
-      this.marker = leaflet.marker([0, 0], {icon: myIcon}).on('click', () => {
+      let markerGroup = L.featureGroup();
+      this.marker = L.marker([0, 0], {icon: myIcon}).on('click', () => {
         alert('Uwe moeke is een plopkoek');
       })
       markerGroup.addLayer(this.marker);
@@ -59,8 +59,8 @@ export class HomePage {
      })
   }
   loadmap() {
-    this.map = leaflet.map("map").fitWorld();
-    leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    this.map = L.map("map").fitWorld();
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attributions: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
       maxZoom: 18
     }).addTo(this.map);
@@ -70,243 +70,247 @@ export class HomePage {
   addTestBuildings() {
     let buildingList = [
       {
-        short: "Leeuw",
+        shortcode: "Leeuw",
         name: "Academie Minerva voor Popcultuur",
-        adress: "Achter den Hoven 23",
-        stad: "Leeuwarden",
-        postcode: "8933AG",
+        address: "Achter den Hoven 23",
+        city: "Leeuwarden",
+        postalcode: "8933AG",
         latitude: 53.198470, 
         longitude: 5.801517
       },
       {
-        short: "AKKE",
+        shortcode: "AKKE",
         name: "Dansacademie Lucia Marthas",
-        adress: "Akkerstraat 97",
-        stad: "Groningen",
-        postcode: "9717KZ",
+        address: "Akkerstraat 97",
+        city: "Groningen",
+        postalcode: "9717KZ",
         latitude: 53.227584, 
         longitude: 6.557653
       },
       {
-        short: "ACLO",
+        shortcode: "ACLO",
         name: "Sportcentrum ACLO",
-        adres: "Blauwborgje 16",
-        stad: "Groningen",
-        postcode: "9747AC",
+        address: "Blauwborgje 16",
+        city: "Groningen",
+        postalcode: "9747AC",
         latitude: 53.237011, 
         longitude: 6.531347
       },
       {
-        short: "GEZU",
+        shortcode: "GEZU",
         name: "Academie Minerva / Gedempte Zuiderdiep",
-        adres: "Gedempte Zuiderdiep 158",
-        stad: "Groningen",
-        postcode: "9711HN",
+        address: "Gedempte Zuiderdiep 158",
+        city: "Groningen",
+        postalcode: "9711HN",
         latitude: 53.214822, 
         longitude: 6.561535
       },
       {
-        short: "ASSE",
+        shortcode: "ASSE",
         name: "Institute of Engineering",
-        adres: "Industrieweg 34a",
-        stad: "Assen",
-        postcode: "9403AB",
+        address: "Industrieweg 34a",
+        city: "Assen",
+        postalcode: "9403AB",
         latitude: 53.004668, 
         longitude: 6.570962
       },
       {
-        short: "MEER",
+        shortcode: "MEER",
         name: "Meerwold",
-        adres: "Laan Corpus den Hoorn 300",
-        stad: "Groningen",
-        postcode: "9728JT",
+        address: "Laan Corpus den Hoorn 300",
+        city: "Groningen",
+        postalcode: "9728JT",
         latitude: 53.187945, 
         longitude: 6.564075
       },
       {
-        short: "PRAE",
+        shortcode: "PRAE",
         name: "Academie Minerva / Praediniussingel",
-        adres: "Praediniussingel 59",
-        stad: "Groningen",
-        postcode: "9711AG",
+        address: "Praediniussingel 59",
+        city: "Groningen",
+        postalcode: "9711AG",
         latitude: 53.215060, 
         longitude: 6.559787
       },
       {
-        short: "PRAE",
+        shortcode: "PRAE",
         name: "Academie Minerva / Praediniussingel",
-        adres: "Praediniussingel 60",
-        stad: "Groningen",
-        postcode: "9711AG",
+        address: "Praediniussingel 60",
+        city: "Groningen",
+        postalcode: "9711AG",
         latitude: 53.213210, 
         longitude: 6.561327
       },
       {
-        short: "PRAE",
+        shortcode: "PRAE",
         name: "Academie Minerva / Praediniussingel",
-        adres: "Praediniussingel 61",
-        stad: "Groningen",
-        postcode: "9711AG",
+        address: "Praediniussingel 61",
+        city: "Groningen",
+        postalcode: "9711AG",
         latitude: 53.214861, 
         longitude: 6.559727
       },
       {
-        short: "RADE",
+        shortcode: "RADE",
         name: "Singelhuis",
-        adres: "Radesingel 6",
-        stad: "Groningen",
-        postcode: "9711EJ",
+        address: "Radesingel 6",
+        city: "Groningen",
+        postalcode: "9711EJ",
         latitude: 53.215020, 
         longitude: 6.573407
       },
       {
-        short: "",
+        shortcode: "",
         name: "Dependance Academie Minerva ",
-        adres: "Ulgersmaweg 143",
-        stad: "Groningen",
-        postcode: "9731BR",
+        address: "Ulgersmaweg 143",
+        city: "Groningen",
+        postalcode: "9731BR",
         latitude: 53.214818, 
         longitude: 6.561501
       },
       {
-        short: "ZE02",
+        shortcode: "ZE02",
         name: "Stafbureau Personeel & Organisatie",
-        adres: "Zernikepark 2",
-        stad: "Groningen",
-        postcode: "9747AN",
+        address: "Zernikepark 2",
+        city: "Groningen",
+        postalcode: "9747AN",
         latitude: 53.243304, 
         longitude: 6.533032
       },
       {
-        short: "ZEPA",
+        shortcode: "ZEPA",
         name: "Stafbureau Onderwijs & Onderzoek",
-        adres: "Zernikepark 4",
-        stad: "Groningen",
-        postcode: "9747AN",
+        address: "Zernikepark 4",
+        city: "Groningen",
+        postalcode: "9747AN",
         latitude: 53.243682, 
         longitude: 6.533487
       },
       {
-        short: "ZP11",
+        shortcode: "ZP11",
         name: "Van DoorenVeste",
-        adres: "Zernikeplein 11",
-        stad: "Groningen",
-        postcode: "9747AS",
+        address: "Zernikeplein 11",
+        city: "Groningen",
+        postalcode: "9747AS",
         latitude: 53.241246, 
         longitude: 6.532561
       },
       {
-        short: "ZP17",
+        shortcode: "ZP17",
         name: "Willem-Alexander Sportcentrum",
-        adres: "Zernikeplein 17",
-        stad: "Groningen",
-        postcode: "9747AS",
+        address: "Zernikeplein 17",
+        city: "Groningen",
+        postalcode: "9747AS",
         latitude: 53.241779, 
         longitude: 6.534895
       },
       {
-        short: "ZP23",
+        shortcode: "ZP23",
         name: "Marie KamphuisBorg",
-        adres: "Zernikeplein 23",
-        stad: "Groningen",
-        postcode: "9747AS",
+        address: "Zernikeplein 23",
+        city: "Groningen",
+        postalcode: "9747AS",
         latitude: 53.242011, 
         longitude: 6.536522
       },
       {
-        short: "ZP07",
+        shortcode: "ZP07",
         name: "Van Olst Toren",
-        adres: "Zernikeplein 7",
-        stad: "Groningen",
-        postcode: "9747AS",
+        address: "Zernikeplein 7",
+        city: "Groningen",
+        postalcode: "9747AS",
         latitude: 53.240060, 
         longitude: 6.532027
       },
       {
-        short: "ZUKU",
+        shortcode: "ZUKU",
         name: "Academie van Bouwkunst",
-        adres: "Zuiderkuipen 19",
-        stad: "Groningen",
-        postcode: "9711HR",
+        address: "Zuiderkuipen 19",
+        city: "Groningen",
+        postalcode: "9711HR",
         latitude: 53.215230, 
         longitude: 6.560876
       },
       {
-        short: "VEEM",
+        shortcode: "VEEM",
         name: "Prins Claus Conservatorium",
-        adres: "Meeuwerderweg 1",
-        stad: "Groningen",
-        postcode: "9724EM",
+        address: "Meeuwerderweg 1",
+        city: "Groningen",
+        postalcode: "9724EM",
         latitude: 53.213985, 
         longitude: 6.577371
       },
       {
-        short: "CHPE",
+        shortcode: "CHPE",
         name: "Wiebenga",
-        adres: "Petrus Driessenstraat 3",
-        stad: "Groningen",
-        postcode: "9714CA",
+        address: "Petrus Driessenstraat 3",
+        city: "Groningen",
+        postalcode: "9714CA",
         latitude: 53.227756, 
         longitude: 6.567727
       },
       {
-        short: "ZL17",
+        shortcode: "ZL17",
         name: "EnTranCe",
-        adres: "Zernikelaan 17",
-        stad: "Groningen",
-        postcode: "9747AA",
+        address: "Zernikelaan 17",
+        city: "Groningen",
+        postalcode: "9747AA",
         latitude: 53.247686, 
         longitude: 6.530270
       },
       {
-        short: "",
+        shortcode: "",
         name: "Logistiek Centrum",
-        adres: "Zernikepark 2A",
-        stad: "Groningen",
-        postcode: "9747AN",
+        address: "Zernikepark 2A",
+        city: "Groningen",
+        postalcode: "9747AN",
         latitude: 53.243499, 
         longitude: 6.532907
       },
       {
-        short: "ZE06",
+        shortcode: "ZE06",
         name: "ZP 6-8",
-        adres: "Zernikepark 6-8",
-        stad: "Groningen",
-        postcode: "9747AN",
+        address: "Zernikepark 6-8",
+        city: "Groningen",
+        postalcode: "9747AN",
         latitude: 53.243958, 
         longitude: 6.534651
       },
       {
-        short: "",
+        shortcode: "",
         name: "P-gebouw",
-        adres: "Zernikeplein 17 A",
-        stad: "Groningen",
-        postcode: "9747AS",
+        address: "Zernikeplein 17 A",
+        city: "Groningen",
+        postalcode: "9747AS",
         latitude: 53.241317, 
         longitude: 6.534165
       },
       {
-        short: "ZP09",
+        shortcode: "ZP09",
         name: "BrugsmaBorg",
-        adres: "Zernikeplein 9",
-        stad: "Groningen",
-        postcode: "9747AS",
+        address: "Zernikeplein 9",
+        city: "Groningen",
+        postalcode: "9747AS",
         latitude: 53.239976, 
         longitude: 6.532851
       }
     ];
 
-    let buildings = leaflet.featureGroup();
+    let buildings = L.featureGroup();
     for (let building of buildingList) {
-      let marker: any = leaflet.marker([building.latitude, building.longitude])
+      let marker: any = L.marker([building.latitude, building.longitude]).on('click', () => {
+        L.popup()
+          .setLatLng([building.latitude, building.longitude])
+          .setContent("<h1>"+building.name+"</h1> <p>shortcode: "+building.shortcode+"</p> <p>address: "+building.address+" "+building.postalcode+" "+building.city+"</p>")
+          .openOn(this.map);      
+        })
       buildings.addLayer(marker);
     }
     this.map.addLayer(buildings);
 
     var imageUrl = 'assets/VanDorenVeste-1.jpg',
     imageBounds = [[53.239976, 6.532851], [53.241317, 6.534165]];
-    leaflet.imageOverlay(imageUrl, imageBounds).addTo(this.map);
+    L.imageOverlay(imageUrl, imageBounds).addTo(this.map);
 
   }
- 
 }
