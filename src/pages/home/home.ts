@@ -9,6 +9,7 @@ import leaflet from 'leaflet';
 export class HomePage {
   @ViewChild('map') mapContainer: ElementRef;
   map: any;
+  marker: any;
   constructor(public navCtrl: NavController) {
  
   }
@@ -26,20 +27,18 @@ export class HomePage {
           iconSize: [40, 40],
 
       })
-      let marker: any;
       let markerGroup = leaflet.featureGroup();
-      marker = leaflet.marker([0, 0], {icon: myIcon}).on('click', () => {
+      this.marker = leaflet.marker([0, 0], {icon: myIcon}).on('click', () => {
         alert('Uwe moeke is een plopkoek');
       })
-      markerGroup.addLayer(marker);
+      markerGroup.addLayer(this.marker);
 
       this.map.locate({
         setView: true,
         maxZoom: 20,
-        watch: true
       }).on('locationfound', (e) => {
         
-        marker.setLatLng([e.latitude, e.longitude])
+        this.marker.setLatLng([e.latitude, e.longitude])
         
         this.map.addLayer(markerGroup);
         }).on('locationerror', (err) => {
@@ -47,6 +46,18 @@ export class HomePage {
       })
   } 
  
+  locate_second() {
+    this.map.locate({
+        maxZoom: 20,
+        watch: true
+      }).on('locationfound', (e) => {
+        
+        this.marker.setLatLng([e.latitude, e.longitude])
+        
+        }).on('locationerror', (err) => {
+          alert(err.message);
+     })
+  }
   loadmap() {
     this.map = leaflet.map("map").fitWorld();
     leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
