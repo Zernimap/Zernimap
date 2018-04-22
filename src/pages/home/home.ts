@@ -296,12 +296,17 @@ export class HomePage {
       }
     ];
 
-    let rooms = leaflet.featureGroup();
+    let buildings = leaflet.featureGroup();
     for (let building of buildingList) {
       let marker: any = leaflet.marker([building.latitude, building.longitude])
-      rooms.addLayer(marker);
+      buildings.addLayer(marker);
     }
-    this.map.addLayer(rooms);
+    this.map.addLayer(buildings);
+
+    var imageUrl = 'assets/VanDorenVeste-1.jpg',
+    imageBounds = [[53.239976, 6.532851], [53.241317, 6.534165]];
+    leaflet.imageOverlay(imageUrl, imageBounds).addTo(this.map);
+
   }
  
 }
