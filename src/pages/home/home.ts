@@ -294,6 +294,65 @@ export class HomePage {
         latitude: 53.239976, 
         longitude: 6.532851
       }
+
+// 1111 / 1112	Broerstraat 5		Academic building
+// 1113	O Kijk in t Jatstraat 41/41a	Administrative Information Provision (AIV)	
+// 1114	O Kijk in t Jatstraat 39	University shop/student societies/Admissions department	University shop
+// 1121	Oude Boteringestraat 44	Office of the University	Administration building and Office of the University
+// 1124	Oude Boteringestraat 38	Faculty of Theology and Religious studies	
+// 1126	Oude Boteringestraat 34	Faculty of Arts, HOVO	
+// 1131	Oude Boteringestraat 52	Faculty of Philosophy	
+// 1134	Broerstraat 9	Archeology (Arts)	
+// 1211	Broerstraat 4	Library	
+// 1212	Poststraat 6	Archeology (Arts)	
+// 1213 / 1219	O Kijk in t Jatstraat 7a	University museum	
+// 1214	O Kijk in t Jatstraat 5/7	Legal theory (Law)	
+// 1215	O Kijk in t Jatstraat 9	Faculty of Law, Legal Theory	
+// 1311 / 1312 / 1313 / 1314 / 1315	O Kijk in t Jatstraat 26	Arts/Law/Language centre	Harmoniecomplex
+// 1321	O Kijk in t Jatstraat 28	Editorial office UK (university newspaper)	
+// 1323	Turftorenstraat 21	Faculty of Law, Legal History and Legal Methods, and DOS	
+// 1324	Kleine Kromme Elleboog 7b	University hotel	University hotel
+// 1325	Uurwerkersgang 10	student counsellors, psychological counsellors, Study support	
+// 2111	Grote Rozenstraat 38	Pedagogy, Special Needs Education and Youth Care (GMW)	Nieuwenhuis building
+// 2211 / 2213	Grote Kruisstraat 2/1	Psychology (GMW)	Heymans building
+// 2212	Grote Kruisstraat 2/1	Teacher Education / Lecture rooms (GMW)	Munting building
+// 2221	Grote Rozenstraat 1	Sociology (GMW)	Bouman building
+// 2222	Grote Rozenstraat 17	Sociology  / Lecture rooms (GMW)	Gadourek building
+// 2223	Grote Rozenstraat 15	Faculty Office (GMW)	Snijders building
+// 2224	Grote Rozenstraat 3	Educational Sciences / GION (GMW)	Van Gelder building
+// 2231	N Kijk in t Jatstraat 68/70	Sustainable Society	Jantina Tammes house
+// 3111	Antonius Deusinglaan 2	Medical Sciences (MRI center and Neuroimaging center)	
+// 3126	Bloemsingel 1	Lifelines	
+// 3211	Antonius Deusinglaan 1		MWF complex (UMCG)
+// 4122 / 4123	Bloemsingel 36/36a	Lecture rooms Faculty of Behavioural and Social Sciences	
+// 4321	Pelsterstraat 23	Student facilities + KEI	Pelsterpand
+// 4335	A-weg 30	Arctic Centre (Arts)	
+// 4336	Munnikeholm 10		USVA cultural student centre
+// 4345	Hoendiepskade 23/24	University College Groningen	
+// 4411	Visserstraat 47/49	Health, Safety and Environment Service/Confidential advisor	
+// 4429	Oude Boteringestraat 23	Faculty of Arts	
+// 4432	Oude Boteringestraat 19		Van Swinderen Huys
+// 4433	Oude Boteringestraat 13	Studium Generale	
+// 5111 / 5112 / 5113 / 5114 / 5115 / 5116 / 5117 / 5118	Nijenborgh 4	Physics, Chemistry, Industrial Engineering and Management (FSE)	Nijenborgh
+// 5143	Zernikelaan 1	Security	Porters lodge
+// 5161	Nijenborgh 9	Faculty board and general offices (FSE), Mathematics, Computing Science, and Artificial Intelligence	Bernoulliborg
+// 5158 /5159	Nijenborgh 6	Energy Academy Europa	Energy Academy Europa
+// 5171 / 5172 / 5173	Nijenborgh 7	Biology, Life Sciences and Technology (FSE)	Linnaeusborg
+// 5211	Blauwborgje 16		Sports Centre
+// 5231	Nadorstplein 2a	Transportation Service	
+// 5236	Blauwborgje 8	University Services Department	
+// 5256	Blauwborgje 8-10	University Services Department	
+// 5263	Blauwborgje 4		Aletta Jacobs hal (examination hall)
+// 5411	Nettelbosje 2	Faculty of Economics and Business Duisenberg building
+// 5412	Nettelbosje 2	Lecture area	
+// 5414	Nettelbosje 2	Student societies	
+// 5415 / 5416 / 5417	Landleven 1	Faculty of Spatial Sciences, CIT, Teacher Education (GMW)	
+// 5419	Landleven 12	Astronomy/Kapteyn Institute, SRON	Kapteynborg
+// 5431	Nettelbosje 1	Centre for Information Technology (CIT)	Smitsborg
+// 5433	Nettelbosje 2	Paviljon Duisenberg Building	
+// 5711	Zernikelaan 25	KVI	
+// 7112	Heereweg 10 Schiermonnikoog	Behavioural biology	De Herdershut
+// 7421	Sophialaan 1 Leeuwarden	Faculty Fryslân	
     ];
 
     let buildings = L.featureGroup();
