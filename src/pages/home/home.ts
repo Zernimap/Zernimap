@@ -25,7 +25,6 @@ export class HomePage {
       let myIcon = L.icon({
           iconUrl: 'assets/imgs/location.png',
           iconSize: [40, 40],
-
       })
       let markerGroup = L.featureGroup();
       this.marker = L.marker([0, 0], {icon: myIcon}).on('click', () => {
@@ -296,9 +295,14 @@ export class HomePage {
       }
     ];
 
+    let hanzeIcon = L.icon({
+      iconUrl: 'assets/imgs/marker-hanze.png',
+      iconSize: [25, 41],
+    })
+
     let buildings = L.featureGroup();
     for (let building of buildingList) {
-      let marker: any = L.marker([building.latitude, building.longitude]).on('click', () => {
+      let marker: any = L.marker([building.latitude, building.longitude], {icon: hanzeIcon}).on('click', () => {
         L.popup()
           .setLatLng([building.latitude, building.longitude])
           .setContent("<h1>"+building.name+"</h1> <p>shortcode: "+building.shortcode+"</p> <p>address: "+building.address+" "+building.postalcode+" "+building.city+"</p>")
