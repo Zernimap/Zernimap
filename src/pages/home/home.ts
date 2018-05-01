@@ -67,7 +67,7 @@ export class HomePage {
   }
 
   addTestBuildings() {
-    let buildingList = [
+    let hanzeBuildingList = [
       {
         shortcode: "Leeuw",
         name: "Academie Minerva voor Popcultuur",
@@ -87,8 +87,8 @@ export class HomePage {
         longitude: 6.557653
       },
       {
-        shortcode: "ACLO",
-        name: "Sportcentrum ACLO",
+        shortcode: "ACLO / 5211", // TODO
+        name: "Sportcentrum ACLO - Sports Centre",
         address: "Blauwborgje 16",
         city: "Groningen",
         postalcode: "9747AC",
@@ -258,7 +258,7 @@ export class HomePage {
         longitude: 6.530270
       },
       {
-        shortcode: "",
+        shortcode: "", // TODO
         name: "Logistiek Centrum",
         address: "Zernikepark 2A",
         city: "Groningen",
@@ -276,7 +276,7 @@ export class HomePage {
         longitude: 6.534651
       },
       {
-        shortcode: "",
+        shortcode: "", // TODO
         name: "P-gebouw",
         address: "Zernikeplein 17 A",
         city: "Groningen",
@@ -293,8 +293,39 @@ export class HomePage {
         latitude: 53.239976, 
         longitude: 6.532851
       }
+    ];
 
-// 1111 / 1112	Broerstraat 5		Academic building
+    let hanzeIcon = L.icon({
+      iconUrl: 'assets/imgs/marker-hanze.png',
+      iconSize: [25, 41],
+    })
+
+    let hanzeBuildings = L.featureGroup();
+    for (let building of hanzeBuildingList) {
+      let marker: any = L.marker([building.latitude, building.longitude], {icon: hanzeIcon}).on('click', () => {
+        L.popup()
+          .setLatLng([building.latitude, building.longitude])
+          .setContent("<h1>"+building.name+"</h1> <p>shortcode: "+building.shortcode+"</p> <p>address: "+building.address+" "+building.postalcode+" "+building.city+"</p>")
+          .openOn(this.map);      
+        })
+      hanzeBuildings.addLayer(marker);
+    }
+    this.map.addLayer(hanzeBuildings);
+
+
+
+    let rugBuildingList = [
+      {
+        shortcode: "1111 / 1112", // TODO
+        name: "Academic building",
+        address: "Broerstraat 5",
+        city: "Groningen",
+        postalcode: "9712CP",
+        latitude: 53.219295, 
+        longitude: 6.563112
+      },
+
+// TODO ADD MORE HERE
 // 1113	O Kijk in t Jatstraat 41/41a	Administrative Information Provision (AIV)	
 // 1114	O Kijk in t Jatstraat 39	University shop/student societies/Admissions department	University shop
 // 1121	Oude Boteringestraat 44	Office of the University	Administration building and Office of the University
@@ -334,34 +365,163 @@ export class HomePage {
 // 4433	Oude Boteringestraat 13	Studium Generale	
 // 5111 / 5112 / 5113 / 5114 / 5115 / 5116 / 5117 / 5118	Nijenborgh 4	Physics, Chemistry, Industrial Engineering and Management (FSE)	Nijenborgh
 // 5143	Zernikelaan 1	Security	Porters lodge
-// 5161	Nijenborgh 9	Faculty board and general offices (FSE), Mathematics, Computing Science, and Artificial Intelligence	Bernoulliborg
-// 5158 /5159	Nijenborgh 6	Energy Academy Europa	Energy Academy Europa
-// 5171 / 5172 / 5173	Nijenborgh 7	Biology, Life Sciences and Technology (FSE)	Linnaeusborg
-// 5211	Blauwborgje 16		Sports Centre
-// 5231	Nadorstplein 2a	Transportation Service	
-// 5236	Blauwborgje 8	University Services Department	
-// 5256	Blauwborgje 8-10	University Services Department	
-// 5263	Blauwborgje 4		Aletta Jacobs hal (examination hall)
+
+      {
+        shortcode: "5161",
+        name: "Faculty board and general offices (FSE), Mathematics, Computing Science, and Artificial Intelligence	Bernoulliborg",
+        address: "Nijenborgh 9",
+        city: "Groningen",
+        postalcode: "9747AG",
+        latitude: 53.240492, 
+        longitude: 6.536288
+      },
+      {
+        shortcode: "5158 / 5159", // TODO klopt dit wel ???
+        name: "Energy Academy Europa	Energy Academy Europa",
+        address: "Nijenborgh 6",
+        city: "Groningen",
+        postalcode: "9747AG",
+        latitude: 53.240049,
+        longitude: 6.537797
+      },
+      {
+        shortcode: "5171 / 5172 / 5173", // TODO
+        name: "Biology, Life Sciences and Technology (FSE)	Linnaeusborg",
+        address: "Nijenborgh 7",
+        city: "Groningen",
+        postalcode: "9747AG",
+        latitude: 53.241308, 
+        longitude: 6.538220
+      },
+      {
+        shortcode: "5231",
+        name: "Transportation Service",
+        address: "Nadorstplein 2a",
+        city: "Groningen",
+        postalcode: "9747AB",
+        latitude: 53.236571, 
+        longitude: 6.533741
+      },
+      {
+        shortcode: "5236 / 5256",
+        name: "University Services Department",
+        address: "Blauwborgje 8-10",
+        city: "Groningen",
+        postalcode: "9747AC",
+        latitude: 53.237081, 
+        longitude: 6.534684
+      },
+// TODO
 // 5411	Nettelbosje 2	Faculty of Economics and Business Duisenberg building
 // 5412	Nettelbosje 2	Lecture area	
 // 5414	Nettelbosje 2	Student societies	
-// 5415 / 5416 / 5417	Landleven 1	Faculty of Spatial Sciences, CIT, Teacher Education (GMW)	
-// 5419	Landleven 12	Astronomy/Kapteyn Institute, SRON	Kapteynborg
-// 5431	Nettelbosje 1	Centre for Information Technology (CIT)	Smitsborg
-// 5433	Nettelbosje 2	Paviljon Duisenberg Building	
-// 5711	Zernikelaan 25	KVI	
-// 7112	Heereweg 10 Schiermonnikoog	Behavioural biology	De Herdershut
-// 7421	Sophialaan 1 Leeuwarden	Faculty Fryslân	
+      {
+        shortcode: "5415 / 5416 / 5417", // TODO
+        name: "Faculty of Spatial Sciences, CIT, Teacher Education (GMW)",
+        address: "Landleven 1",
+        city: "Groningen",
+        postalcode: "9747AD",
+        latitude: 53.237768, 
+        longitude: 6.534745
+      },
+      {
+        shortcode: "5419",
+        name: "Astronomy/Kapteyn Institute, SRON	Kapteynborg",
+        address: "Landleven 12",
+        city: "Groningen",
+        postalcode: "9747AD",
+        latitude: 53.239995, 
+        longitude: 6.533877
+      },
+      {
+        shortcode: "5431",
+        name: "Centre for Information Technology (CIT)	Smitsborg",
+        address: "Nettelbosje 1",
+        city: "Groningen",
+        postalcode: "9747AJ",
+        latitude: 53.238136, 
+        longitude: 6.536045
+      },
+      {
+        shortcode: "5433",
+        name: "Paviljon Duisenberg Building",
+        address: "Nettelbosje 2",
+        city: "Groningen",
+        postalcode: "9747AJ",
+        latitude: 53.239429, 
+        longitude: 6.534604
+      },
+      {
+        shortcode: "5711",
+        name: "KVI",
+        address: "Zernikelaan 25",
+        city: "Groningen",
+        postalcode: "9747AA",
+        latitude: 53.249467, 
+        longitude: 6.525755
+      },
+      {
+        shortcode: "7112",
+        name: "Behavioural biology	De Herdershut",
+        address: "Heereweg 10 Schiermonnikoog",
+        city: "Schiermonnikoog",
+        postalcode: "9166SE",
+        latitude: 53.478410, 
+        longitude: 6.208321
+      },
+      {
+        shortcode: "7421",
+        name: "Faculty Fryslân",
+        address: "Sophialaan 1",
+        city: "Leeuwarden",
+        postalcode: "8911AE",
+        latitude: 53.19787, 
+        longitude: 5.792877
+      }
+
     ];
 
-    let hanzeIcon = L.icon({
-      iconUrl: 'assets/imgs/marker-hanze.png',
+    let rugIcon = L.icon({
+      iconUrl: 'assets/imgs/marker-rug.png',
+      iconSize: [25, 41],
+    })
+
+    let rugBuildings = L.featureGroup();
+    for (let building of rugBuildingList) {
+      let marker: any = L.marker([building.latitude, building.longitude], {icon: rugIcon}).on('click', () => {
+        L.popup()
+          .setLatLng([building.latitude, building.longitude])
+          .setContent("<h1>"+building.name+"</h1> <p>shortcode: "+building.shortcode+"</p> <p>address: "+building.address+" "+building.postalcode+" "+building.city+"</p>")
+          .openOn(this.map);      
+        })
+      rugBuildings.addLayer(marker);
+    }
+    this.map.addLayer(rugBuildings);
+
+
+
+
+
+    let examLocationList = [
+      {
+        shortcode: "5263", // TODO
+        name: "Aletta Jacobshal",
+        address: "Blauwborgje 4",
+        city: "Groningen",
+        postalcode: "9747AC",
+        latitude: 53.236815,  
+        longitude: 6.536249
+      }
+    ]
+
+    let examIcon = L.icon({
+      iconUrl: 'assets/imgs/marker-icon.png',
       iconSize: [25, 41],
     })
 
     let buildings = L.featureGroup();
-    for (let building of buildingList) {
-      let marker: any = L.marker([building.latitude, building.longitude], {icon: hanzeIcon}).on('click', () => {
+    for (let building of examLocationList) {
+      let marker: any = L.marker([building.latitude, building.longitude], {icon: examIcon}).on('click', () => {
         L.popup()
           .setLatLng([building.latitude, building.longitude])
           .setContent("<h1>"+building.name+"</h1> <p>shortcode: "+building.shortcode+"</p> <p>address: "+building.address+" "+building.postalcode+" "+building.city+"</p>")
@@ -371,9 +531,9 @@ export class HomePage {
     }
     this.map.addLayer(buildings);
 
-    var imageUrl = 'assets/VanDorenVeste-1.jpg',
-    imageBounds = [[53.239976, 6.532851], [53.241317, 6.534165]];
-    L.imageOverlay(imageUrl, imageBounds).addTo(this.map);
+    // var imageUrl = 'assets/VanDorenVeste-1.jpg',
+    // imageBounds = [[53.239976, 6.532851], [53.241317, 6.534165]];
+    // L.imageOverlay(imageUrl, imageBounds).addTo(this.map);
 
   }
 }
